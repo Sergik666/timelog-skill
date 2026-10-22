@@ -1,6 +1,6 @@
 ---
 name: timelog
-description: Entry point for everything time-tracking related, reconstructed from local Claude Code chat logs — routes to whichever specific timelog skill fits the request (a summary table, filling a CSV, a Redmine write-up) so the user doesn't have to know the family exists. Use whenever the user asks about time spent, what they did in some period, filling a time-entries CSV, or a Redmine summary, or types /timelog with no further detail.
+description: Entry point for everything time-tracking related, reconstructed from local Claude Code chat logs — routes to whichever specific timelog skill fits the request (a summary table, filling a CSV or the time tracker via its API, a Redmine write-up) so the user doesn't have to know the family exists. Use whenever the user asks about time spent, what they did in some period, filling a time-entries CSV or time-tracker slots, or a Redmine summary, or types /timelog with no further detail.
 ---
 
 # timelog
@@ -13,6 +13,8 @@ don't reimplement its logic here, and don't make the user pick.
 
 - Mentions a CSV file, a time table to fill in, or gives a file path with
   a project → invoke **timelog-csv**.
+- Asks to fill slots/entries in the time tracker itself (TT tracker, via
+  the API, no CSV file given) → invoke **timelog-api**.
 - Mentions Redmine, or asks for a short write-up/summary to paste
   somewhere → invoke **timelog-redmine**.
 - Anything else — "what did I do", "how much time did I spend", a plain
