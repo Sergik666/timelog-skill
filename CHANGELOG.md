@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 — 2026-10-22
+
+- `timelog-api` keeps credentials and backups in `~/.claude/timelog/`
+  (was `~/.config/timelog/`), which survives container rebuilds.
+
 ## 1.1.0 — 2026-10-22
 
 - New `timelog-api` skill: fills blank descriptions of one project's entries

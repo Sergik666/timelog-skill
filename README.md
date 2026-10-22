@@ -1,6 +1,6 @@
 # timelog — a Claude Code skill family
 
-Version 1.1.0 — see [CHANGELOG.md](CHANGELOG.md).
+Version 1.1.1 — see [CHANGELOG.md](CHANGELOG.md).
 
 Reconstructs what you were working on from your local Claude Code chat
 history (`~/.claude/projects/**/*.jsonl`) — no separate time-tracking
@@ -41,7 +41,7 @@ being re-read every time a different output format is requested.
 - **timelog-api** — the same as timelog-csv, but for entries in the
   Time Tracker, read and written through its API (`/api/v1/entries`).
   Before every write it saves a full backup (`/api/v1/backup`) to
-  `~/.config/timelog/backups/` and refuses to write if that fails; the
+  `~/.claude/timelog/backups/` and refuses to write if that fails; the
   server keeps its own snapshots too (`/api/v1/backups`).
 - **timelog-redmine** — one English line per day (≤20 words) summarizing
   everything done that day, for pasting into Redmine time tracking.
@@ -89,11 +89,11 @@ cp -r skills/timelog skills/timelog-data skills/timelog-summary skills/timelog-c
 ```
 
 For `timelog-api`, put the tracker URL and a **Read & write** key (Settings
-→ API keys) into `~/.config/timelog/tt.env` — keep it out of the chat:
+→ API keys) into `~/.claude/timelog/tt.env` — keep it out of the chat:
 
 ```bash
-mkdir -p ~/.config/timelog && cp tt.env.example ~/.config/timelog/tt.env
-chmod 600 ~/.config/timelog/tt.env   # then fill it in an editor
+mkdir -p ~/.claude/timelog && cp tt.env.example ~/.claude/timelog/tt.env
+chmod 600 ~/.claude/timelog/tt.env   # then fill it in an editor
 ```
 
 Restart the session, then invoke `/timelog`, `/timelog-summary`,

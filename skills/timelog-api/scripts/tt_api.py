@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Time Tracker API client for the timelog-api skill (stdlib only).
 
-Reads TT_API_URL and TT_API_KEY from ~/.config/timelog/tt.env (or the
+Reads TT_API_URL and TT_API_KEY from ~/.claude/timelog/tt.env (or the
 environment) so the key never shows up in the chat.
 
   tt_api.py slots --project TT [--from 2026-10-19 --to 2026-10-25]
@@ -17,7 +17,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-CONFIG_DIR = Path.home() / ".config" / "timelog"
+CONFIG_DIR = Path.home() / ".claude" / "timelog"  # ~/.claude survives container rebuilds
 ENV_FILE = CONFIG_DIR / "tt.env"
 BACKUP_DIR = CONFIG_DIR / "backups"
 

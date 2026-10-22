@@ -10,10 +10,10 @@ written through its API by `scripts/tt_api.py` (stdlib only). Run it as
 `python3 <this skill dir>/scripts/tt_api.py …`.
 
 The script reads `TT_API_URL` and `TT_API_KEY` from
-`~/.config/timelog/tt.env`. **Never print, cat or echo that file or the
+`~/.claude/timelog/tt.env`. **Never print, cat or echo that file or the
 key.** If the script says they are missing, tell the user to fill that
 file themselves in an editor (not through the chat) with a **Read & write**
-key from Settings → API keys, then `chmod 600 ~/.config/timelog/tt.env`.
+key from Settings → API keys, then `chmod 600 ~/.claude/timelog/tt.env`.
 
 1. Ask which project (e.g. `TT`) if not already said. Range defaults to the
    current week (Mon–Sun); otherwise resolve it to `--from`/`--to` dates
@@ -40,7 +40,7 @@ key from Settings → API keys, then `chmod 600 ~/.config/timelog/tt.env`.
    ```bash
    python3 scripts/tt_api.py patch <file.json>
    ```
-   It first saves a full backup to `~/.config/timelog/backups/` and stops
+   It first saves a full backup to `~/.claude/timelog/backups/` and stops
    without writing if that fails; the server also keeps its own snapshot
    (`GET /api/v1/backups`). Report the backup path and `updated` count.
    A `409` means the data kept changing — rerun step 2 and retry once.
